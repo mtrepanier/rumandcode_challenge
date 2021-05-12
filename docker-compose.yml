@@ -8,10 +8,21 @@ services:
       POSTGRES_PASSWORD: avengerpass
     restart: always
 
+  webpacker:
+    image: ${DOCKER_IMAGE_NAME-rumandcode_challenge}
+    command: ["./scripts/start_webpack_dev.sh"]
+    volumes:
+      - .:/app
+    ports:
+      - 3035:3035
+
   app:
-    build: .
-    command: rails server -b 0.0.0.0
-    container_name: rumandcode_challenge
+    image: ${DOCKER_IMAGE_NAME-rumandcode_challenge}
+    build:
+      context: .
+      args:
+        precompileassets: "not"
+    command: ["./scripts/wait-for-it.sh", "db:5432", "--", "./scripts/start_rails.sh"]
     volumes:
       - .:/app
     depends_on:

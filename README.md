@@ -23,8 +23,9 @@ I had to create a catalog of Avengers superheroes.  It had to contains.
 ## To run the project
 1. Clone the repo `git clone https://github.com/mtrepanier/rumandcode_challenge.git && cd ./rumandcode_challenge` 
 2. Build the project - `make build`
-3. Start the project - `make start`
-4. Stop the project - `make stop`
+3. Seed the database - `make seed_db`
+4. Start the project - `make start`
+5. Stop the project - `make stop`
 
 ## Maintenance
 ### Rubocop
