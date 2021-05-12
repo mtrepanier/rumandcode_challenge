@@ -25,3 +25,8 @@ I had to create a catalog of Avengers superheroes.  It had to contains.
 2. Build the project - `make build`
 3. Start the project - `make start`
 4. Stop the project - `make stop`
+
+## Maintenance
+### Rubocop
+For code cleanup and formatter
+* make cleanup
