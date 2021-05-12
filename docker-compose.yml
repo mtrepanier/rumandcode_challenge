@@ -8,14 +8,6 @@ services:
       POSTGRES_PASSWORD: avengerpass
     restart: always
 
-  webpacker:
-    image: ${DOCKER_IMAGE_NAME-rumandcode_challenge}
-    command: ["./scripts/start_webpack_dev.sh"]
-    volumes:
-      - .:/app
-    ports:
-      - 3035:3035
-
   app:
     image: ${DOCKER_IMAGE_NAME-rumandcode_challenge}
     build:
@@ -31,3 +23,11 @@ services:
       - postgresdb
     ports:
       - '3000:3000'
+
+  webpacker:
+    image: ${DOCKER_IMAGE_NAME-rumandcode_challenge}
+    command: ["./scripts/start_webpack_dev.sh"]
+    volumes:
+      - .:/app
+    ports:
+      - 3035:3035

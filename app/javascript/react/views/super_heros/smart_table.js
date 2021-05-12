@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
+import { Link } from 'react-router-dom';
 
 const headCells = [
   { id: 'hero_name', label: 'Superhero name', isSortable: true },
@@ -94,7 +95,8 @@ const SmartTable = props => {
                     hover
                     key={superHero.id}
                   >
-                    <TableCell>{superHero.hero_name}</TableCell>
+                    <TableCell>
+                      <Link to={`/super_heros/${superHero.id}`}>{superHero.hero_name}</Link></TableCell>
                     <TableCell>{superHero.firstname}</TableCell>
                     <TableCell>{superHero.lastname}</TableCell>
                     <TableCell>
