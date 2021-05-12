@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  postgresdb: 
+    image: postgres:11
+    environment:
+      POSTGRES_USER: avenger
+      POSTGRES_PASSWORD: avengerpass
+    restart: always
+
+  app:
+    build: .
+    command: rails server -b 0.0.0.0
+    container_name: rumandcode_challenge
+    volumes:
+      - .:/app
+    depends_on:
+      - postgresdb
+    links:
+      - postgresdb
+    ports:
+      - '3000:3000'
