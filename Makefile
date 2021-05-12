@@ -10,7 +10,3 @@ start:
 .PHONY: stop
 stop:
 	docker-compose down
-
-.PHONY: cleanup
-cleanup:
-	docker-compose run app rubocop -a
